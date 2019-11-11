@@ -84,7 +84,7 @@ $(document).ready(function () {
   $("form").submit(function (event) { //La fonction afin de vérifier si tous les champs ont été remplis
     $("span").remove();
     if ($("input[type=text]").val() === "" || $("input[type=date]").val() === "" || (!$("input[type=radio]").is(':checked')) || $('input[name ="activité"]').first().val() === "") {
-      $("<span>Votre inscription n'a pas été envoyé car un ou plusieurs champs ne sont pas validés.</span>").insertAfter('input[name ="submit"]');
+      $("<span>Votre inscription n'a pas été envoyé car un ou plusieurs champs ne sont pas validés.</span>").insertAfter('input[name ="submit"]').fadeOut(5000);
       if ($('input[name ="nom"]').val() === "") { //nom
         $("<span> *Entrer votre nom</span>").insertAfter('input[name ="nom"]');
         $("input[name =nom]").addClass("invalidLabel");
