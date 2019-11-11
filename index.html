@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/CSS/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Yatra+One&display=swap" rel="stylesheet"> <!--La font de Google-->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script><!--JQUERY-->
+    <script type="application/javascript" src="assets/javascript/form.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Maxime Noel, Frederick Simard, Sebastian Wagner, Jimmy Desfosses, David Mongeau.">
+    <title>Loisir pour les étudiants</title>
+</head>
+<body onload="hide()">
+<header> <!--Entête-->
+        <section class="container-1"> 
+                <div class="box-1">
+                    <img class="logo" src="assets/images/logo1.png" alt="LOGO_entete">
+                </div><!-- Fin de la box-1 -->
+                <div class="box-2">
+                    <h1 class="loisir">Loisir pour les étudiants !</h1>
+                </div><!-- Fin de la box-2 -->
+        </section><!-- Fin de la section ENTÊTE -->
+</header>
+<main class="container-2"> <!--Section principal contenant la barre de navigation et la section du contenu principal du site. Mise en page de forme flex.-->
+    <nav> <!--La barre de navigation-->
+        <ul class="box-3">
+            <li class="menu activeDefault" id="haut"><a href="assets/menu/Acceuil.html" target = "contenu">Acceuil</a></li>
+            <li class="menu updown" id="milieu"><a href="assets/menu/Inscription.html" target="contenu">S'inscire</a></li>
+            <li class ="menu updown" id="bas"><a href="assets/menu/Localiser.html" target="contenu">Localiser une activité</a>
+                <br /> <!--Lorsque la fenêtre est en mode <<cellulaire>>, cela permet au sous-menu de s<afficher diretcement en dessous du menu <<Localiser une activité>>-->
+                <ul class="sousMenu">
+                    <li><a href="assets/menu/sousmenu/Natation.html" target="contenu">Natation</a></li>
+                    <li><a href="assets/menu/sousmenu/Badminton.html" target="contenu">Badminton</a></li>
+                    <li><a href="assets/menu/sousmenu/Randonee.html" target="contenu">Randonnée</a></li>
+                    <li><a href="assets/menu/sousmenu/Kayak.html" target="contenu">Kayak</a></li>
+                    <li><a href="assets/menu/sousmenu/Velo.html" target="contenu">Vélo</a></li>
+                    <li><a href="assets/menu/sousmenu/Echecs.html" target="contenu">Échecs</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <section class="box-4"> <!--Le contenu principal du document-->
+        <iframe name = "contenu" src="assets/menu/Acceuil.html"></iframe>
+    </section>
+</main>
+</body>
+</html>
