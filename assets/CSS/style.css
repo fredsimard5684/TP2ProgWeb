@@ -56,10 +56,10 @@ nav>ul>li:nth-child(3) { /*Enlève la bordure au dernier enfant*/
     color: white;
     font-weight: bold;
 }
-li a { /* permet de cliquer n'importe ou sur le li au lieu de cliquer sur le a. */
+li>a { /* permet de cliquer n'importe ou sur le li au lieu de cliquer sur le a. */
     text-decoration: none;
     margin: 0px;
-    display: block; 
+    display: inline-block; 
     width: 100%; 
     height: 100%;
 }
