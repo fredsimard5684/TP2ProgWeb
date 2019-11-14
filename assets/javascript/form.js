@@ -12,10 +12,6 @@ $(document).ready(function () {
       $(".inscriptionSize").addClass("box-4"); //Cette fonction permet de revenir au height normal (de box-4) lorsqu'on click sur l'acceuil
       $(".box-4").removeClass("inscriptionSize");
   });
-  $("#haut").dblclick(function () { //Cache l'inscription et la localisation au double click 
-    $(".updown").slideUp("fast");
-    $(this).addClass("activeDefault");
-    });
   $("#milieu").click(function () { //Inscription
     $(".sousMenu").removeClass("sousMenuLong");
     $("a.subActive").removeClass("subActive");
@@ -115,10 +111,6 @@ $(document).ready(function () {
 function lettersOnly(input) { //Fait en sorte qu'il est impossible pour le client d'écrire des chiffres pour les champs noms et prénoms
   var onlyLetters = /[^a-z àèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ]/gi;
   input.value = input.value.replace(onlyLetters, "");
-}
-function hide() { //Cacher l'inscription et la localisation à l'ouverture du site web
-  document.getElementById("milieu").style.display = "none";
-  document.getElementById("bas").style.display = "none";
 }
 //CES FONCTIONS PERMETTENT L'APPARITION ET LA DISPARITION DU TABLEAU AINSI QUE DE TRIER CELUI-CI
 //Les données du tableau
