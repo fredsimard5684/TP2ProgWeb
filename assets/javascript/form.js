@@ -2,7 +2,9 @@
 $(document).ready(function () {
   //LES FONCTIONS SUIVANTES CONCERNENT L'APPARITION DU MENU
   $("#haut").click(function () { //acceuil
-    $(".updown").slideDown("fast");
+    $("#accueil").slideDown("fast");
+    $("#inscription").slideUp("fast");
+    $("#sectioncarte").slideUp("fast");
     $(".sousMenu").removeClass("sousMenuLong");
     $("a.subActive").removeClass("subActive");
       $("#haut").removeClass("activeDefault");
@@ -13,6 +15,9 @@ $(document).ready(function () {
       $(".box-4").removeClass("inscriptionSize");
   });
   $("#milieu").click(function () { //Inscription
+    $("#accueil").slideUp("fast");
+    $("#inscription").slideDown("fast");
+    $("#sectioncarte").slideUp("fast");
     $(".sousMenu").removeClass("sousMenuLong");
     $("a.subActive").removeClass("subActive");
     $("#haut").removeClass("activeDefault");
@@ -23,6 +28,9 @@ $(document).ready(function () {
     $(".inscriptionSize").removeClass("box-4");
   });
   $("#bas").click(function () { //Localiser
+    $("#accueil").slideUp("fast");
+    $("#inscription").slideUp("fast");
+    $("#sectioncarte").slideDown("fast");
     $(".sousMenu").addClass("sousMenuLong");
     $("#bas").addClass("activeMenu-3");
     $("#haut").removeClass("activeDefault");
@@ -42,7 +50,7 @@ $(document).ready(function () {
   //CES FONCTIONS CONCERNENT LES CHAMPS D'INSCRIPTIONS ET LES VALIDATION AFIN D'AJOUTER DIFFÉRENT CSS ET CONDITIONS
   // Validation des champs
   $("input[type=text]").focusout(function (event) { //Met une bordure rouge sur le prénom et le nom
-    if (this.value.length < 2 || this.value.length > 25) {
+    if (this.value.length < 1 || this.value.length > 25) {
       $(this).addClass("invalidLabel");
       event.preventDefault();
     }
@@ -200,34 +208,13 @@ function replaceDataInOrder() {
   data.sort(triOrder);
 }
 //------------------------------------------------------------------------------------------------------
-//LES FONCTION POUR LES DIFFÉRENTES PAGES AYANT LA MAP DE GOOGLE MAP
+//LA FONCTION POUR LA MAP DE GOOGLE MAP
 function initMap() {
   // La localisation de l'UQTR
   var uqtr = { lat: 46.346381, lng: -72.579382 };
   var map = new google.maps.Map(
     document.getElementById('map'), { zoom: 15, center: uqtr });
   var marker = new google.maps.Marker({ position: uqtr, map: map });
-}
-function initMapRandonnee() {
-  // La localisation de la randonnée
-  var randonnee = { lat: 46.341270, lng: -72.541610 };
-  var map = new google.maps.Map(
-    document.getElementById('map'), { zoom: 15, center: randonnee });
-  var marker = new google.maps.Marker({ position: randonnee, map: map });
-}
-function initMapNatation() {
-  // La localisation de la natation
-  var natation = { lat: 46.353729, lng: -72.559967 };
-  var map = new google.maps.Map(
-    document.getElementById('map'), { zoom: 15, center: natation });
-  var marker = new google.maps.Marker({ position: natation, map: map });
-}
-function initMapKayak() {
-  // La localisation du kayak
-  var kayak = { lat: 46.360140, lng: -72.532230 };
-  var map = new google.maps.Map(
-    document.getElementById('map'), { zoom: 15, center: kayak });
-  var marker = new google.maps.Marker({ position: kayak, map: map });
 }
 //-------------------------------------------------------------------------------
 
