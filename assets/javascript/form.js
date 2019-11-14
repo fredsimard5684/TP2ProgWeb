@@ -15,6 +15,7 @@ $(document).ready(function () {
   $("#milieu").click(function () { //Inscription
     $(".sousMenu").removeClass("sousMenuLong");
     $("a.subActive").removeClass("subActive");
+    $("#haut").removeClass("activeDefault");
     $("#milieu").addClass("activeMenu-2");
     $("#haut").removeClass("activeMenu-1");
     $("#bas").removeClass("activeMenu-3");
@@ -24,6 +25,7 @@ $(document).ready(function () {
   $("#bas").click(function () { //Localiser
     $(".sousMenu").addClass("sousMenuLong");
     $("#bas").addClass("activeMenu-3");
+    $("#haut").removeClass("activeDefault");
     $("#haut").removeClass("activeMenu-1");
     $("#milieu").removeClass("activeMenu-2");
     $(".inscriptionSize").addClass("box-4"); //Cette fonction permet de revenir au height normal (de box-4) lorsqu'on click sur l'acceuil
