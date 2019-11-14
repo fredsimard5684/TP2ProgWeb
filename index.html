@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script><!--JQUERY-->
     <script type="application/javascript" src="assets/javascript/form.js"></script> <!--Javascript-->
     <script async defer
-
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQguqC3LHN9dSSFyNhj3JQpStbMsXNgo4&callback=initMap"></script> <!--Map Google-->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="author" content="Maxime Noel, Frederick Simard, Sebastian Wagner, Jimmy Desfosses, David Mongeau.">
     <title>Loisir pour les étudiants</title>
@@ -27,7 +27,9 @@
 <main class="container-2"> <!--Section principal contenant la barre de navigation et la section du contenu principal du site. Mise en page de forme flex.-->
     <nav> <!--La barre de navigation-->
         <ul class="box-3">
-
+            <li class="menu activeDefault" id="haut"><a>Acceuil</a></li>
+            <li class="menu updown" id="milieu"><a>S'inscire</a></li>
+            <li class ="menu updown" id="bas"><a>Localiser une activité</a>
                 <br /> <!--Lorsque la fenêtre est en mode <<cellulaire>>, cela permet au sous-menu de s'afficher diretcement en dessous du menu <<Localiser une activité>>-->
                 <ul class="sousMenu">
                     <li><a>Natation</a></li>
@@ -112,7 +114,6 @@
                 <!--La div pour la map -->
                 <div id="map"></div>
                 <p>3351 Boulevard des Forges, Trois-Rivières, QC G8Z 4M3</p>
-                <p>Pour toutes informations concernant les activités, composer le numéro suivant: 819 376-5011</p>
         </section>
     </section>
 </main>
