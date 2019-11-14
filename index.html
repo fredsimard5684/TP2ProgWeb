@@ -7,11 +7,13 @@
     <link href="https://fonts.googleapis.com/css?family=Yatra+One&display=swap" rel="stylesheet"> <!--La font de Google-->
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script><!--JQUERY-->
     <script type="application/javascript" src="assets/javascript/form.js"></script> <!--Javascript-->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQguqC3LHN9dSSFyNhj3JQpStbMsXNgo4&callback=initMap"></script> <!--Map Google-->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="author" content="Maxime Noel, Frederick Simard, Sebastian Wagner, Jimmy Desfosses, David Mongeau.">
     <title>Loisir pour les étudiants</title>
 </head>
-<body onload="hide()">
+<body onload="showTable()">
 <header> <!--Entête-->
         <section class="container-1">
                 <div class="box-1">
@@ -25,23 +27,94 @@
 <main class="container-2"> <!--Section principal contenant la barre de navigation et la section du contenu principal du site. Mise en page de forme flex.-->
     <nav> <!--La barre de navigation-->
         <ul class="box-3">
-            <li class="menu activeDefault" id="haut"><a href="assets/menu/Acceuil.html" target = "contenu">Acceuil</a></li>
-            <li class="menu updown" id="milieu"><a href="assets/menu/Inscription.html" target="contenu">S'inscire</a></li>
-            <li class ="menu updown" id="bas"><a href="assets/menu/Localiser.html" target="contenu">Localiser une activité</a>
+            <li class="menu activeDefault" id="haut"><a>Acceuil</a></li>
+            <li class="menu updown" id="milieu"><a>S'inscire</a></li>
+            <li class ="menu updown" id="bas"><a>Localiser une activité</a>
                 <br /> <!--Lorsque la fenêtre est en mode <<cellulaire>>, cela permet au sous-menu de s'afficher diretcement en dessous du menu <<Localiser une activité>>-->
                 <ul class="sousMenu">
-                    <li><a href="assets/menu/sousmenu/Natation.html" target="contenu">Natation</a></li>
-                    <li><a href="assets/menu/sousmenu/Badminton.html" target="contenu">Badminton</a></li>
-                    <li><a href="assets/menu/sousmenu/Randonee.html" target="contenu">Randonnée</a></li>
-                    <li><a href="assets/menu/sousmenu/Kayak.html" target="contenu">Kayak</a></li>
-                    <li><a href="assets/menu/sousmenu/Velo.html" target="contenu">Vélo</a></li>
-                    <li><a href="assets/menu/sousmenu/Echecs.html" target="contenu">Échecs</a></li>
+                    <li><a>Natation</a></li>
+                    <li><a>Badminton</a></li>
+                    <li><a>Randonnée</a></li>
+                    <li><a>Kayak</a></li>
+                    <li><a>Vélo</a></li>
+                    <li><a>Échecs</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
     <section class="box-4"> <!--Le contenu principal du document-->
-        <iframe name = "contenu" src="assets/menu/Acceuil.html"></iframe>
+        <section id="accueil">
+            <h2>Notre but:</h2>
+            <p> Notre site propose aux étudiants désireux de réaliser une ou plusieurs activités de loisir de rejoindre les différentes activités proposées dans la liste suivante en 3 étapes: </p>
+                <ul>
+                    <li>S'inscire</li>
+                    <li>Choisir une ou plusieurs activité</li>
+                    <li>Commencer les activités en groupe</li>
+                </ul>   
+            <p>Les différentes activités des groupes sont la responsabilité de professionnelles. Il s'agit de passionnés du domaine qui vous feront découvrir des pans inédits de vos loisirs préférés. Qu'attendez-vous..? Rejoignez-nous!</p>
+            <div class="box-5">
+                <h2>Liste des activités disponibles</h2>
+                <div>
+                <input type="button" name="show" value="Remplir" onclick="replaceDataInOrder(); showTable()">
+                <input type="button" name="hide" value="Effacer" onclick="hideTable()">
+                </div>
+            </div>
+            <table> <!--Le tableau-->
+                <thead>
+                    <tr>
+                        <th onclick="activateTri(1)">#</th>
+                        <th onclick="activateTri(2)">Activité</th>
+                        <th onclick="activateTri(3)">Responsable</th>
+                        <th onclick="activateTri(4)">Nombre d'inscrits</th>
+                    </tr>
+                </thead>
+                <tbody id="tableRows"></tbody>    
+            </table>
+        </section>
+        <section id="inscription">
+            <h2>Inscrivez-vous</h2>
+            <form>
+                <label>Nom</label>
+                <input type="text" name="nom" onkeyup="lettersOnly(this)"><br>
+        
+                <label>Prénom</label>
+                <input type="text" name="prenom" onkeyup="lettersOnly(this)"><br>
+        
+                <label>Date de naissance</label>
+                <input type="date" name="bday"><br>
+        
+                <label>Sexe</label>
+        
+                <input type="radio" name="sexe" value="Homme">
+                <label>Homme</label>
+                <input type="radio" name="sexe" value="Femme">
+                <label>Femme</label><br>
+        
+                <label>Activité</label>
+                <input list="activite" name="activité" value="">
+                <datalist id="activite">
+                    <option value="Natation">
+                    <option value="Badminton">
+                    <option value="Randonnée">
+                    <option value="Kayak">
+                    <option value="Vélo">
+                    <option value="Échecs">
+                </datalist><br>
+        
+                <label for="motivation">Motivation</label>
+                <textarea id="motivation" class="reposition" name="motivation" rows="5" cols="40"></textarea><br>
+        
+                <input type="reset" name="reset" value="Réinitialiser" onclick="clearStyleOnReset()">
+                <input type="submit" name="submit" value="Valider">
+                <span id="validation"></span>
+            </form>
+        </section>
+        <section id="sectioncarte">
+                <h3>L'adresse de l'université</h3>
+                <!--La div pour la map -->
+                <div id="map"></div>
+                <p>3351 Boulevard des Forges, Trois-Rivières, QC G8Z 4M3</p>
+        </section>
     </section>
 </main>
 </body>
